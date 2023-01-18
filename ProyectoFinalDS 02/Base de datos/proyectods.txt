@@ -1,0 +1,169 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-06-2022 a las 12:46:19
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `proyectods`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `idAdminitrador` varchar(15) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `administradores`
+--
+
+INSERT INTO `administradores` (`idAdminitrador`, `idUsuario`) VALUES
+('1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detallecursosestudiantes`
+--
+
+CREATE TABLE `detallecursosestudiantes` (
+  `idDetalleCurso` int(11) NOT NULL,
+  `idEstudiante` varchar(15) NOT NULL,
+  `idCurso` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estudiantes`
+--
+
+CREATE TABLE `estudiantes` (
+  `idEstudiante` varchar(15) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`idEstudiante`, `idUsuario`) VALUES
+('0', 2),
+('16', 1),
+('45', 2),
+('50', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sequence`
+--
+
+CREATE TABLE `sequence` (
+  `SEQ_NAME` varchar(50) NOT NULL,
+  `SEQ_COUNT` decimal(38,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sequence`
+--
+
+INSERT INTO `sequence` (`SEQ_NAME`, `SEQ_COUNT`) VALUES
+('SEQ_GEN', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `idUsuario` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `primerApellido` varchar(20) NOT NULL,
+  `segundoApellido` varchar(20) NOT NULL,
+  `contrasena` varchar(15) NOT NULL,
+  `correo` varchar(60) NOT NULL,
+  `estado` varchar(15) NOT NULL,
+  `tipoUsuario` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUsuario`, `nombre`, `primerApellido`, `segundoApellido`, `contrasena`, `correo`, `estado`, `tipoUsuario`) VALUES
+(1, 'lewin', 'lopez', 'lopez', '**', 'lewin.@gmail.com', 'a', 'Administrador'),
+(3, 'ale', 'mejia', 'sanchez', '****', 'diego@gmail.com', 'a', ''),
+(16, 'frank', 'gil', 'medina', '**', 'frank@gmail.com', 'a', 'Estudiante'),
+(34, 'diego', 'yepes', 'molina', '***', 'ale@gmail', 'a', 'Usuario'),
+(45, 'ale', 'yepes', 'molina', '***', 'ale@gmail', 'a', 'Estudiante'),
+(50, 'ale', 'yepes', 'molina', '***', 'ale@gmail', 'a', 'Estudiante'),
+(12345, 'luis', '', '', '1234', '', 'Activo', ''),
+(12356, 'mayra', 'molina', 'yepes', '1111', 'mayragmail.com', 'Activo', ''),
+(181917, 'laura', 'gil', 'morales', 'laura', 'laura@gmail.com', 'Activo', ''),
+(1234567, 'Diego', 'mejia', 'sanchez', 'Diego', 'diego@gmail.com', 'Activo', '');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`idAdminitrador`);
+
+--
+-- Indices de la tabla `detallecursosestudiantes`
+--
+ALTER TABLE `detallecursosestudiantes`
+  ADD PRIMARY KEY (`idDetalleCurso`);
+
+--
+-- Indices de la tabla `estudiantes`
+--
+ALTER TABLE `estudiantes`
+  ADD PRIMARY KEY (`idEstudiante`);
+
+--
+-- Indices de la tabla `sequence`
+--
+ALTER TABLE `sequence`
+  ADD PRIMARY KEY (`SEQ_NAME`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUsuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `detallecursosestudiantes`
+--
+ALTER TABLE `detallecursosestudiantes`
+  MODIFY `idDetalleCurso` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1114878992;
+COMMIT;
